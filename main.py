@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+import tent_grid_generator as tents
 
 app = Flask(__name__)
 
@@ -6,6 +7,13 @@ app = Flask(__name__)
 def generate_json():
     # Example JSON data
     data = {"puzzle": [[1, 2, 3], [4, 5, 6]]}
+    
+    return jsonify(data)  # Sends JSON response
+
+@app.route('/tents_easy', methods=['GET'])
+def generate_tents_easy():
+    # Example JSON data
+    data = tents.generate_tents_grid(difficulty=1)
     
     return jsonify(data)  # Sends JSON response
 
