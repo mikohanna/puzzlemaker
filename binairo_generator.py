@@ -199,7 +199,7 @@ def generate_binairo_puzzle(difficulty=1):
     puzzle = remove_elements(puzzle.copy().T).T
 
     if difficulty == 1:
-        return {'solution': filled, 'puzzle': puzzle}
+        return {'solution': filled.tolist(), 'puzzle': puzzle.tolist()}
 
     for row in range(size):
         for col in range(size):
@@ -217,5 +217,5 @@ def generate_binairo_puzzle(difficulty=1):
                 else:
                     # If not solvable, revert back to the original value
                     puzzle[row, col] = original_value
-    return {'solution': filled, 'puzzle': puzzle}
+    return {'solution': filled.tolist(), 'puzzle': puzzle.tolist()}
 
