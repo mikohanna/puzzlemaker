@@ -17,5 +17,23 @@ def generate_tents_easy():
     
     return jsonify(data)  # Sends JSON response
 
+
+@app.route('/tents_medium', methods=['GET'])
+def generate_tents_medium():
+    # Example JSON data
+    data = tents.generate_tents_grid(difficulty=2)
+    
+    return jsonify(data)  # Sends JSON response
+
+
+@app.route('/tents_hard', methods=['GET'])
+def generate_tents_hard():
+    # Example JSON data
+    data = tents.generate_tents_grid(difficulty=3)
+    
+    return jsonify(data)  # Sends JSON response
+
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
